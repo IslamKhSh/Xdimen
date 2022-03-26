@@ -1,0 +1,26 @@
+plugins {
+    id("com.android.application")
+    id("io.github.islamkhsh.xdimen")
+}
+
+android {
+    compileSdk = 31
+}
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+         classpath("com.android.tools.build:gradle:7.0.4")
+    }
+}
+
+xdimen {
+    designWidth.set(300)
+    fontsRange {
+        step.set(0.0)
+    }
+}

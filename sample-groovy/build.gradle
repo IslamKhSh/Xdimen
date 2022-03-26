@@ -1,0 +1,39 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'io.github.islamkhsh.xdimen'
+}
+
+android {
+    compileSdk 31
+    defaultConfig {
+        applicationId "io.github.islamkhsh.xdimen.sample.groovy"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "0.0.1"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+}
+
+xdimen {
+    deleteOldXdimen = true
+    designWidth = 411
+    designDpi = mdpi()
+    targetDevicesWidth = [360, 375, 411]
+    dimensRange {
+        minDimen = -10
+        maxDimen = 600
+        step = 0.5d
+    }
+    fontsRange {
+        minDimen = 10
+        maxDimen = 60
+        step = 1.0d
+    }
+}
+
+dependencies {
+    implementation libs.kotlinStd
+    implementation libs.appcompat
+}

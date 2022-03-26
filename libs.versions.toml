@@ -1,0 +1,22 @@
+[versions]
+agpVersion = "7.0.4"
+kotlinVersion = "1.6.10"
+jupiterVersion = "5.8.2"
+pluginPublish = "0.20.0"
+
+[libraries]
+kotlinStd = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlinVersion" }
+androidBuildTools = { module = "com.android.tools.build:gradle", version.ref = "agpVersion" }
+xmlBuilder = "org.redundent:kotlin-xml-builder:1.7.4"
+appcompat = "androidx.appcompat:appcompat:1.4.1"
+jupiterApi = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "jupiterVersion" }
+jupiterEngine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "jupiterVersion" }
+mockk = "io.mockk:mockk:1.12.2"
+
+[plugins]
+androidApp = { id = "com.android.application", version.ref = "agpVersion" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVersion" }
+kotlinJVM = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinVersion" }
+pluginPublish = { id = "com.gradle.plugin-publish", version.ref = "pluginPublish" }
+detekt = "io.gitlab.arturbosch.detekt:1.19.0"
+ktlint = "org.jlleitschuh.gradle.ktlint:10.2.1"
