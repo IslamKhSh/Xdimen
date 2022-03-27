@@ -35,7 +35,8 @@ class XdimenPlugin : Plugin<Project> {
             // As the `SetProperty` has an initial value empty set,
             // this workaround used to add the default list to the initial empty set
             if (extension.targetDevicesWidth.orNull?.isEmpty() == true) {
-                extension.targetDevicesWidth.addAll(extension.devicesInPortrait)
+                // set the initial value to be the same of designWidth
+                extension.targetDevicesWidth.addAll(extension.designWidth.get())
             }
             it.targetDevicesWidth.value(extension.targetDevicesWidth).convention(extension.devicesInPortrait)
 
