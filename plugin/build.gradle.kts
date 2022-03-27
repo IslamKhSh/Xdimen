@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "io.github.islamkhsh"
-version = "0.0.1"
+version = "0.0.3"
 
 gradlePlugin {
     plugins {
@@ -28,7 +28,7 @@ gradlePlugin {
 }
 
 pluginBundle {
-    website = "https://islamkhsh.github.io/xdimen"
+    website = "https://islamkhsh.github.io/Xdimen/"
     vcsUrl = "https://github.com/IslamKhSh/xdimen"
     tags = listOf("android", "dimensions", "tablet", "multiple-screens")
 }
