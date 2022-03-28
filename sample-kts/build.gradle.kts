@@ -23,7 +23,7 @@ xdimen {
     deleteOldXdimen.set(true)
     designWidth.set(411)
     designDpi.set(mdpi())
-    targetDevicesWidth.set(phonePortrait + 411)
+    targetDevicesWidth.set(phonePortrait)
     dimensRange {
         minDimen.set(-10)
         maxDimen.set(500)
