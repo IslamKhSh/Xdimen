@@ -4,7 +4,7 @@ rootProject.name = "xdimen"
 dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {
-            from(files("../libs.versions.toml"))
+            from(files("/libs.versions.toml"))
         }
     }
 }
