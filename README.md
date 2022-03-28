@@ -71,7 +71,7 @@ Poroperies disscussed in more details in below section.
     deleteOldXdimen.set(true)
     designWidth.set(411) // required
     designDpi.set(mdpi())
-    targetDevicesWidth.set(phonePortrait + 411)
+    targetDevicesWidth.set(phonePortrait)
     dimensRange {
         minDimen.set(-10)
         maxDimen.set(500)
