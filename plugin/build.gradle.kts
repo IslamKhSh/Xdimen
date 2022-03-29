@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "io.github.islamkhsh"
-version = "0.0.4"
+version = "0.0.5"
 
 gradlePlugin {
     plugins {
@@ -91,4 +91,9 @@ tasks.named("check") {
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
