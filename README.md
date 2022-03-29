@@ -1,4 +1,6 @@
-# Xdimen
+# Xdimen 
+[![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/io.github.islamkhsh.xdimen?color=gradle&logo=gradle)](https://plugins.gradle.org/plugin/io.github.islamkhsh.xdimen)
+
 Support multiple screen sizes easily by scalling your dimensions.
 ### 
 
@@ -9,7 +11,8 @@ When you have a UI design with specific diemnsion and you need to support differ
 Xdimen generates an alternative res directory for every common screen width (configurable) and scale your design dimensions.
 
 ## Usage
-For now publishing gradle on `gradle portal` is pending approval, docs will be updated once it get published.
+![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/io.github.islamkhsh.xdimen?color=gradle&logo=gradle&label=Latest%20version)
+
  
 ### Add to project
  Xdimen must be applied in an android project.
