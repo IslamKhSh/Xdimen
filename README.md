@@ -23,7 +23,7 @@ Xdimen generates an alternative res directory for every common screen width (con
 ````groovy
   plugins {
     id 'io.github.islamkhsh.xdimen' version "$latest_version"   
-    // agb plugin
+    // agp plugin
   } 
 ````
 </details>
@@ -34,7 +34,7 @@ Xdimen generates an alternative res directory for every common screen width (con
 ````kotlin
   plugins {                         
     id("io.github.islamkhsh.xdimen") version "$latest_version"  
-    // agb plugin
+    // agp plugin
   }
 ````
 </details>
@@ -92,10 +92,10 @@ Poroperies disscussed in more details in below section.
 ### Use scaled dimens
 After generate xdiemn resources (see next section) you can use the dimens 
 ```xml
-   <TextView android:layout_width="@dimen/x100dp" # width in design is 100dp
-             android:layout_height="@dimen/x50_5dp" # height in design is 50.5dp
-             android:padding="@dimen/neg_x6_5dp" #  padding in design is -6.5dp
-             android:textSize="@dimen/x12sp" # textSize in design is 12sp
+   <TextView android:layout_width="@dimen/x100dp"    # width in design is 100dp
+             android:layout_height="@dimen/x50_5dp"  # height in design is 50.5dp
+             android:padding="@dimen/neg_x6_5dp"     # padding in design is -6.5dp
+             android:textSize="@dimen/x12sp"         # textSize in design is 12sp
              />
 ```
 
