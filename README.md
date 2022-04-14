@@ -2,7 +2,7 @@
 
 [![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/io.github.islamkhsh.xdimen?color=gradle&logo=gradle)](https://plugins.gradle.org/plugin/io.github.islamkhsh.xdimen)
 
-![Xdimen logo](images/xdimen%20logo.svg)
+<p align="center"><img src="images/xdimen%20logo.svg" width="750"></p>
 Support multiple screen sizes easily by scaling your dimensions.
 
 ## How Xdiemn works?
