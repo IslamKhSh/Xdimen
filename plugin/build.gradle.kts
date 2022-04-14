@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "io.github.islamkhsh"
-version = "0.0.5"
+version = "0.0.6"
 
 gradlePlugin {
     plugins {

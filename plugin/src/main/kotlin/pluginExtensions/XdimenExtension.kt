@@ -40,11 +40,6 @@ abstract class XdimenExtension {
     val tabletPortrait: Set<Int> = tabletPortraitList
     val tabletLandscape: Set<Int> = tabletLandscapeList
 
-    // common devices with device type
-    val phoneDevices: Set<Int> = phonePortrait + phoneLandscape
-    val tabletDevices = tabletPortrait + tabletLandscape
-    val allDevices = phoneDevices + tabletDevices
-
     // common devices with orientation
     val devicesInPortrait = phonePortrait + tabletPortrait
     val devicesInLandscape = phoneLandscape + tabletLandscape
