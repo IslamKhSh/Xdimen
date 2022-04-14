@@ -1,21 +1,27 @@
-# Xdimen 
+# Xdimen
+
 [![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/io.github.islamkhsh.xdimen?color=gradle&logo=gradle)](https://plugins.gradle.org/plugin/io.github.islamkhsh.xdimen)
 
-Support multiple screen sizes easily by scalling your dimensions.
-### 
+![Xdimen logo](images/xdimen%20logo.svg)
+Support multiple screen sizes easily by scaling your dimensions.
 
-### How Xdiemn works?
-When you have a UI design with specific diemnsion and you need to support different mobiles or tablets in portrait, landscape or both. This case **Xdimen** can help you to generate scalable diemsions for common devices screen sizes.
- 
+## How Xdiemn works?
 
-Xdimen generates an alternative res directory for every common screen width (configurable) and scale your design dimensions.
+When you have a UI design with specific dimension, and you need to support different mobiles or tablets in portrait,
+landscape or both. This case **Xdimen** can help you to generate scalable diemsions for common devices screen sizes.
+
+Xdimen generates an alternative res directory for every common screen width (configurable) and scale your design
+dimensions.
+
+> Xml resources are generated with help of [kotlin xml builder](https://github.com/redundent/kotlin-xml-builder)
 
 ## Usage
+
 ![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/io.github.islamkhsh.xdimen?color=gradle&logo=gradle&label=Latest%20version)
 
- 
 ### Add to project
- Xdimen must be applied in an android project.
+
+Xdimen must be applied in an android project.
 
 <details>
 <summary>Groovy</summary> 
@@ -28,7 +34,7 @@ Xdimen generates an alternative res directory for every common screen width (con
 ````
 </details>
 
-<details>
+<details open>
 <summary>Kotlin</summary> 
   
 ````kotlin
@@ -40,8 +46,7 @@ Xdimen generates an alternative res directory for every common screen width (con
 </details>
 
 ### Configure Xdimen
-All properties are optionals, only `designWidth` is required. 
-Poroperies disscussed in more details in below section.
+All properties are optionals, only `designWidth` is required. Properties discussed in more details in below section.
 
 <details>
 <summary>Groovy</summary> 
@@ -66,7 +71,7 @@ Poroperies disscussed in more details in below section.
 ````
 </details>
 
-<details>
+<details open>
 <summary>Kotlin</summary> 
   
 ````kotlin
@@ -100,23 +105,30 @@ After generate xdiemn resources (see next section) you can use the dimens
 ```
 
 ## Tasks
-To excute a task, make sure you excute it on an android project using one of these ways
+
+To execute a task, make sure you execute it on an android project using one of these ways
 - `$ gradle :prjectName:taskName`.
 - From gradle tool window under `android` group.
 - From `Run AnyThing` window.
 
 ### `generateXdimen`
-Generates alternative resources for every device width in `targetDevicesWidth` set and for every created resource qualifier it scales the dimensions to fit with this width. It uses configured proprties to calculate scaling factor, get range of dimensions to generate and list of screen widths' to target.
+
+Generates alternative resources for every device width in `targetDevicesWidth` set and for every created resource
+qualifier it scales the dimensions to fit with this width. It uses configured properties to calculate scaling factor,
+get range of dimensions to generate and list of screen widths' to target.
 
 ### `deleteXdimen` 
-Delete the previous generated xdimen resources unless you renamed the res file or dir. It will be excuted before `generateXdimen` if you set `deleteOldXdimen` property by true.
+
+Delete the previous generated xdimen resources unless you renamed the res file or dir. It will be executed
+before `generateXdimen` if you set `deleteOldXdimen` property by true.
 
 ## Configuration properties
 
 <details>
 <summary><b>deleteOldXdimen</b></summary>  
-  
-By setting it when you excute `generateXdimen` task `deleteXdimen` will be excuted first to delete all previous generated xdimen resources and thier dirs if directory contains only `xdiemn.xml` file. 
+
+By setting it when you execute `generateXdimen` task `deleteXdimen` will be executed first to delete all previous
+generated xdimen resources and their dirs if directory contains only `xdiemn.xml` file.
 
 > If you renamed the `xdimen.xml` file or its directory for any reason, this file won't be deleted. 
   
@@ -125,30 +137,34 @@ By setting it when you excute `generateXdimen` task `deleteXdimen` will be excut
 
 <details>
 <summary><b>designWidth</b></summary>  
-  
-The value of screen width of your design in `dp` unit. It will be used with `designDpi` to calculate the relativeDesignWidth (width realtive to main denisity `mdpi`) an then calculate a scaling factor for every screen sidth in `targetDevicesWidth`.
-  
-> If your design is in `px` set its width in this proprty and set `designDpi` to be `mdpi` as in mdpi 1px = 1dp.
-  
-> No default value because it's reuired and must be configured.
+
+The value of screen width of your design in `dp` unit. It will be used with `designDpi` to calculate the
+relativeDesignWidth (width relative to main density `mdpi`) and then calculate a scaling factor for every screen width
+in `targetDevicesWidth`.
+
+> If your design is in `px` set its width in this property and set `designDpi` to be `mdpi` as in mdpi 1px = 1dp.
+
+> No default value because it's required and must be configured.
 </details>
 
 <details>
 <summary><b>designDpi</b></summary>  
   
 The design screen density (dot per inch) [see more](https://developer.android.com/training/multiscreen/screendensities). This will be used to with `designWidth` to calculate the relativeDesignWidth.
-  
+
 > Default value is: **mdpi**
-  
-> Predefined densities: for every density in [common densities](https://developer.android.com/training/multiscreen/screendensities#TaskProvideAltBmp) there's a mthod with its name ( `ldpi()`, `mdpi()`, `hdpi()`, ... etc), Also there's a method to set custom density `dpi(value)`.
+
+> Predefined densities: for every density in [common densities](https://developer.android.com/training/multiscreen/screendensities#TaskProvideAltBmp) there's a method with its name ( `ldpi()`, `mdpi()`, `hdpi()`, ... etc), Also there's a method to set custom density `dpi(value)`.
 </details>
 
 <details>
 <summary><b>targetDevicesWidth</b></summary>  
-  
-The width of screens of devices which you target. For every width in this list an alternative resource will be generated with scalled dimens.
-  
-  ex: if list is [350, 400] then 
+
+The width of screens of devices which you target. For every width in this list an alternative resource will be generated
+with scaled dimens.
+
+ex: if list is [350, 400] then
+
   ```
   ...
  -> values
@@ -165,24 +181,22 @@ The width of screens of devices which you target. For every width in this list a
   - screen width >= 400 will use dimens in `values-w400dp/xdimen.xml`.
   
 > You can use predefined set as it's , add or remove from it or provide your own set.
-  
+
 > Default value is: **[designWidth]** set of designWidth provided value.
-  
-> Predefined sets for common devices: 
-  - `phonePortrait`: common phones in portrait orientation.
-  - `phoneLandscape`: common phones in portrait orientation.
-  - `tabletPortrait`: common tablets in portrait orientation.
-  - `tabletLandscape`: common tablets in portrait orientation.
-  ###
-  - `phoneDevices`: common phones in portrait and landscape.
-  - `tabletDevices`: common tablets in portrait and landscape.
-  - `allDevices`: common phones and tablets in both portrait and landscape.
-  ###
-  - `devicesInPortrait`: common phones and tablets in portrait.
-  - `devicesInLandscape`: common phones and tablets in landscape.
-  
- These lists collected from many sources: [Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays#720p_by_1280_(HD_ready)), 
-  [ScreenSize](https://screensiz.es/), [Pixensity](https://pixensity.com/list/) and others.
+
+> > Predefined sets for common devices:
+>  - `phonePortrait`: common phones in portrait orientation.
+>  - `phoneLandscape`: common phones in portrait orientation.
+>  - `tabletPortrait`: common tablets in portrait orientation.
+>  - `tabletLandscape`: common tablets in portrait orientation.
+>  ####
+>  - `devicesInPortrait`: common phones and tablets in portrait.
+>  - `devicesInLandscape`: common phones and tablets in landscape.
+>
+> You can combine multiple devices list, but I recommend not to target both portrait and landscape unless you provide a custom layout for landscape or using [Pane Layout](https://developer.android.com/guide/topics/ui/layout/twopane).
+>
+> These lists collected from many sources: [Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays#720p_by_1280_(HD_ready)),
+[ScreenSize](https://screensiz.es/), [Pixensity](https://pixensity.com/list/) and others.
 </details>
   
   <details>
@@ -191,17 +205,21 @@ The width of screens of devices which you target. For every width in this list a
 The range of dimens you want to be generated and scaled.
 - `minDimen`: the minimum dimen to be generated.
 - `maxDimen`: the maximum dimen to be generated.
-- `step`: the step between between two genarted dimen.
+- `step`: the step between two generated dimen.
     
 > Default value: **minDimen=-10**,  **maxDimen=600**,  **step=1.00**.
- 
+
 </details>
-  
+
    <details>
 <summary><b>fontsRange</b></summary>  
-  
+
 The same of `dimensRange` but for fonts dimens range.
-    
+
 > Default value: **minDimen=6**,  **maxDimen=48**,  **step=1.00**.
- 
+
 </details>
+
+## Screenshots
+
+![screenshots](images/screenshots.png)
