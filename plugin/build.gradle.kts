@@ -1,5 +1,4 @@
-@file:Suppress("UnstableApiUsage")
-
+import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 @Suppress("DSL_SCOPE_VIOLATION")
@@ -10,6 +9,8 @@ plugins {
     alias(libs.plugins.pluginPublish)
     alias(libs.plugins.kotlinJVM)
     alias(libs.plugins.ktlint)
+    alias(libs.plugins.gradleVersions)
+    alias(libs.plugins.versionCatalogUpdate)
 }
 
 group = "io.github.islamkhsh"
@@ -38,6 +39,7 @@ repositories {
     mavenCentral()
 }
 
+@Suppress("UnstableApiUsage")
 testing {
     suites {
         val test by getting(JvmTestSuite::class) {
@@ -85,6 +87,7 @@ ktlint {
     filter { exclude { it.file.path.contains("generated/") } }
 }
 
+@Suppress("UnstableApiUsage")
 tasks.named("check") {
     dependsOn(testing.suites.named("functionalTest"))
 }
@@ -96,4 +99,31 @@ tasks.withType<Test>().configureEach {
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+versionCatalogUpdate {
+    sortByKey.set(false)
+    pin {
+        versions.set(setOf("agpVersion"))
+        libraries.set(setOf(libs.xmlBuilder))
+        plugins.set(setOf(libs.plugins.versionCatalogUpdate))
+    }
+    keep {
+        keepUnusedVersions.set(true)
+        keepUnusedLibraries.set(true)
+        keepUnusedPlugins.set(true)
+    }
+}
+
+fun isNonStable(version: String): Boolean {
+    val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.toUpperCase().contains(it) }
+    val regex = "^[0-9,.v-]+(-r)?$".toRegex()
+    val isStable = stableKeyword || regex.matches(version)
+    return isStable.not()
+}
+
+tasks.withType<DependencyUpdatesTask> {
+    rejectVersionIf {
+        isNonStable(candidate.version) && !isNonStable(currentVersion)
+    }
 }
