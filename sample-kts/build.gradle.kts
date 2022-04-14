@@ -21,9 +21,9 @@ android {
 
 xdimen {
     deleteOldXdimen.set(true)
-    designWidth.set(411)
+    designWidth.set(600)
     designDpi.set(mdpi())
-    targetDevicesWidth.set(phonePortrait)
+    targetDevicesWidth.set(devicesInPortrait)
     dimensRange {
         minDimen.set(-10)
         maxDimen.set(500)

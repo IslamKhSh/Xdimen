@@ -5,3 +5,5 @@ build
 /*/build/
 .idea
 local.properties
+/*/debug
+/*/release

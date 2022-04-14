@@ -1,6 +1,6 @@
 [versions]
 agpVersion = "7.0.4"
-kotlinVersion = "1.6.10"
+kotlinVersion = "1.6.20"
 jupiterVersion = "5.8.2"
 pluginPublish = "0.20.0"
 
