@@ -5,12 +5,12 @@
 <p align="center"><img src="images/xdimen%20logo.svg" width="600"></p>
 Support multiple screen sizes easily by scaling your dimensions.
 
-## How Xdiemn works?
+## How does Xdiemn work?
 
-When you have a UI design with specific dimension, and you need to support different mobiles or tablets in portrait,
-landscape or both. This case **Xdimen** can help you to generate scalable diemsions for common devices screen sizes.
+When you have a UI design with a specific dimension, and you need to support different mobiles or tablets in portrait or
+landscape. This case **Xdimen** can help you to generate scalable dimesions for common devices' screen sizes.
 
-Xdimen generates an alternative res directory for every common screen width (configurable) and scale your design
+Xdimen generates an alternative res directory for every common screen width (configurable) and scales your design
 dimensions.
 
 > Xml resources are generated with help of [kotlin xml builder](https://github.com/redundent/kotlin-xml-builder)
@@ -46,7 +46,7 @@ Xdimen must be applied in an android project.
 </details>
 
 ### Configure Xdimen
-All properties are optionals, only `designWidth` is required. Properties discussed in more details in below section.
+All properties are optional, only `designWidth` is required. Properties are discussed in more detail in below section.
 
 <details>
 <summary>Groovy</summary> 
@@ -114,8 +114,8 @@ To execute a task, make sure you execute it on an android project using one of t
 ### `generateXdimen`
 
 Generates alternative resources for every device width in `targetDevicesWidth` set and for every created resource
-qualifier it scales the dimensions to fit with this width. It uses configured properties to calculate scaling factor,
-get range of dimensions to generate and list of screen widths' to target.
+qualifier it scales the dimensions to fit with this width. It uses configured properties to calculate a scaling factor,
+get the range of dimensions to generate and the list of screen widths' to target.
 
 ### `deleteXdimen` 
 
@@ -128,7 +128,7 @@ before `generateXdimen` if you set `deleteOldXdimen` property by true.
 <summary><b>deleteOldXdimen</b></summary>  
 
 By setting it when you execute `generateXdimen` task `deleteXdimen` will be executed first to delete all previous
-generated xdimen resources and their dirs if directory contains only `xdiemn.xml` file.
+generated xdimen resources and their dirs if the directory contains only `xdiemn.xml` file.
 
 > If you renamed the `xdimen.xml` file or its directory for any reason, this file won't be deleted. 
   
@@ -150,7 +150,7 @@ in `targetDevicesWidth`.
 <details>
 <summary><b>designDpi</b></summary>  
   
-The design screen density (dot per inch) [see more](https://developer.android.com/training/multiscreen/screendensities). This will be used to with `designWidth` to calculate the relativeDesignWidth.
+The design screen density (dot per inch) [see more](https://developer.android.com/training/multiscreen/screendensities). This will be used with `designWidth` to calculate the relativeDesignWidth.
 
 > Default value is: **mdpi**
 
@@ -160,10 +160,10 @@ The design screen density (dot per inch) [see more](https://developer.android.co
 <details>
 <summary><b>targetDevicesWidth</b></summary>  
 
-The width of screens of devices which you target. For every width in this list an alternative resource will be generated
-with scaled dimens.
+The width of screens of devices which you target. For every width in this list, an alternative resource will be generated
+with scaled dimensions.
 
-ex: if list is [350, 400] then
+ex: if rhe list is [350, 400] then
 
   ```
   ...
@@ -180,7 +180,7 @@ ex: if list is [350, 400] then
   - 350dp <= screen width < 400 will use dimens in `values-w350dp/xdimen.xml`.
   - screen width >= 400 will use dimens in `values-w400dp/xdimen.xml`.
   
-> You can use predefined set as it's , add or remove from it or provide your own set.
+> You can use  a predefined set as it's, adds or removes from it, or provide your own set.
 
 > Default value is: **[designWidth]** set of designWidth provided value.
 
@@ -195,14 +195,14 @@ ex: if list is [350, 400] then
 >
 > You can combine multiple devices list, but I recommend not to target both portrait and landscape unless you provide a custom layout for landscape or using [Pane Layout](https://developer.android.com/guide/topics/ui/layout/twopane).
 >
-> These lists collected from many sources: [Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays#720p_by_1280_(HD_ready)),
+> These lists were collected from many sources: [Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays#720p_by_1280_(HD_ready)),
 [ScreenSize](https://screensiz.es/), [Pixensity](https://pixensity.com/list/) and others.
 </details>
   
   <details>
 <summary><b>dimensRange</b></summary>  
   
-The range of dimens you want to be generated and scaled.
+The range of dimensions you want to be generated and scaled.
 - `minDimen`: the minimum dimen to be generated.
 - `maxDimen`: the maximum dimen to be generated.
 - `step`: the step between two generated dimen.
@@ -214,7 +214,7 @@ The range of dimens you want to be generated and scaled.
    <details>
 <summary><b>fontsRange</b></summary>  
 
-The same of `dimensRange` but for fonts dimens range.
+The same of `dimensRange` but for fonts dimensions range.
 
 > Default value: **minDimen=6**,  **maxDimen=48**,  **step=1.00**.
 
