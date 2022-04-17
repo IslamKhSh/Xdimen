@@ -15,6 +15,9 @@ dimensions.
 
 > Xml resources are generated with help of [kotlin xml builder](https://github.com/redundent/kotlin-xml-builder)
 
+Find more about Xdimen [here](https://medium.com/@islam.khaled50/android-support-multiple-screen-sizes-by-scaling-dimensions-5fd9bd80821)
+
+
 ## Usage
 
 ![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/io.github.islamkhsh.xdimen?color=gradle&logo=gradle&label=Latest%20version)
@@ -163,22 +166,15 @@ The design screen density (dot per inch) [see more](https://developer.android.co
 The width of screens of devices which you target. For every width in this list, an alternative resource will be generated
 with scaled dimensions.
 
-ex: if rhe list is [350, 400] then
+ex: if the list is [350, 400] then
 
   ```
   ...
- -> values
-    - xdimen.xml
- -> values-w350dp
-    - xdimen.xml
- -> values-w400dp
-    - xdimen.xml
+-> values/xdimen.xml            # Devices with screen-width less than 350dp.
+-> values-w350dp/xdimen.xml     # 350dp <= screen-width < 400dp
+-> values-w400dp/xdimen.xml     # screen-width >= 400dp
   ...
 ```
-  And this means that all devices with 
-  - screen width < 350 will use dimens in `values/xdimen.xml`.
-  - 350dp <= screen width < 400 will use dimens in `values-w350dp/xdimen.xml`.
-  - screen width >= 400 will use dimens in `values-w400dp/xdimen.xml`.
   
 > You can use  a predefined set as it's, adds or removes from it, or provide your own set.
 
@@ -186,9 +182,9 @@ ex: if rhe list is [350, 400] then
 
 > > Predefined sets for common devices:
 >  - `phonePortrait`: common phones in portrait orientation.
->  - `phoneLandscape`: common phones in portrait orientation.
+>  - `phoneLandscape`: common phones in landscape orientation.
 >  - `tabletPortrait`: common tablets in portrait orientation.
->  - `tabletLandscape`: common tablets in portrait orientation.
+>  - `tabletLandscape`: common tablets in landscape orientation.
 >  ####
 >  - `devicesInPortrait`: common phones and tablets in portrait.
 >  - `devicesInLandscape`: common phones and tablets in landscape.
