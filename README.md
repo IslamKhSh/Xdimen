@@ -5,7 +5,7 @@
 <p align="center"><img src="images/xdimen%20logo.svg" width="600"></p>
 Support multiple screen sizes easily by scaling your dimensions.
 
-## How does Xdiemn work?
+## How does Xdimen work?
 
 When you have a UI design with a specific dimension, and you need to support different mobiles or tablets in portrait or
 landscape. This case **Xdimen** can help you to generate scalable dimesions for common devices' screen sizes.
@@ -98,7 +98,7 @@ All properties are optional, only `designWidth` is required. Properties are disc
 </details> 
 
 ### Use scaled dimens
-After generate xdiemn resources (see next section) you can use the dimens 
+After generate xdimen resources (see next section) you can use the dimens 
 ```xml
    <TextView android:layout_width="@dimen/x100dp"    # width in design is 100dp
              android:layout_height="@dimen/x50_5dp"  # height in design is 50.5dp
@@ -131,7 +131,7 @@ before `generateXdimen` if you set `deleteOldXdimen` property by true.
 <summary><b>deleteOldXdimen</b></summary>  
 
 By setting it when you execute `generateXdimen` task `deleteXdimen` will be executed first to delete all previous
-generated xdimen resources and their dirs if the directory contains only `xdiemn.xml` file.
+generated xdimen resources and their dirs if the directory contains only `xdimen.xml` file.
 
 > If you renamed the `xdimen.xml` file or its directory for any reason, this file won't be deleted. 
   
