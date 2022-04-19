@@ -1,6 +1,7 @@
 # Xdimen
 
-[![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/io.github.islamkhsh.xdimen?color=gradle&logo=gradle)](https://plugins.gradle.org/plugin/io.github.islamkhsh.xdimen)
+[![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/io.github.islamkhsh.xdimen?color=blue&logo=gradle)](https://plugins.gradle.org/plugin/io.github.islamkhsh.xdimen) [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Xdimen%20Gradle%20Plugin-gradle.svg?style=flat )]( https://android-arsenal.com/details/1/8408 )
+
 
 <p align="center"><img src="images/xdimen%20logo.svg" width="600"></p>
 Support multiple screen sizes easily by scaling your dimensions.
@@ -20,7 +21,7 @@ Find more about Xdimen [here](https://medium.com/@islam.khaled50/android-support
 
 ## Usage
 
-![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/io.github.islamkhsh.xdimen?color=gradle&logo=gradle&label=Latest%20version)
+![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/io.github.islamkhsh.xdimen?color=blue&logo=gradle&label=Latest%20version)
 
 ### Add to project
 
