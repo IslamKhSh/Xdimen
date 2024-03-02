@@ -1,4 +1,3 @@
-import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 @Suppress("DSL_SCOPE_VIOLATION")
@@ -9,12 +8,10 @@ plugins {
     alias(libs.plugins.pluginPublish)
     alias(libs.plugins.kotlinJVM)
     alias(libs.plugins.ktlint)
-    alias(libs.plugins.gradleVersions)
-    alias(libs.plugins.versionCatalogUpdate)
 }
 
 group = "io.github.islamkhsh"
-version = "0.0.6"
+version = "0.0.8"
 
 gradlePlugin {
     plugins {
@@ -24,14 +21,14 @@ gradlePlugin {
             displayName = "Xdimen"
             description = "Easily support android multiple screen sizes"
             implementationClass = "XdimenPlugin"
+            tags = listOf("android", "dimensions", "tablet", "multiple-screens")
         }
     }
 }
 
-pluginBundle {
+gradlePlugin {
     website = "https://islamkhsh.github.io/Xdimen/"
     vcsUrl = "https://github.com/IslamKhSh/xdimen"
-    tags = listOf("android", "dimensions", "tablet", "multiple-screens")
 }
 
 repositories {
@@ -94,36 +91,4 @@ tasks.named("check") {
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-}
-
-versionCatalogUpdate {
-    sortByKey.set(false)
-    pin {
-        versions.set(setOf("agpVersion"))
-        libraries.set(setOf(libs.xmlBuilder))
-        plugins.set(setOf(libs.plugins.versionCatalogUpdate))
-    }
-    keep {
-        keepUnusedVersions.set(true)
-        keepUnusedLibraries.set(true)
-        keepUnusedPlugins.set(true)
-    }
-}
-
-fun isNonStable(version: String): Boolean {
-    val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.toUpperCase().contains(it) }
-    val regex = "^[0-9,.v-]+(-r)?$".toRegex()
-    val isStable = stableKeyword || regex.matches(version)
-    return isStable.not()
-}
-
-tasks.withType<DependencyUpdatesTask> {
-    rejectVersionIf {
-        isNonStable(candidate.version) && !isNonStable(currentVersion)
-    }
 }

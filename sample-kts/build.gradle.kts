@@ -1,6 +1,6 @@
 @file:Suppress("Detekt:MagicNumber")
 
-@Suppress("DSL_SCOPE_VIOLATION", "UnstableApiUsage")
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id(libs.plugins.androidApp.get().pluginId)
     id(libs.plugins.kotlinAndroid.get().pluginId)
@@ -8,6 +8,7 @@ plugins {
 }
 
 android {
+    namespace = "io.github.islamkhsh.xdimen.sample.kts"
     compileSdk = 31
     defaultConfig {
         applicationId = "io.github.islamkhsh.xdimen.sample.kts"
@@ -27,7 +28,7 @@ xdimen {
     dimensRange {
         minDimen.set(-10)
         maxDimen.set(500)
-        step.set(0.5)
+        step.set(0.1)
     }
     fontsRange {
         minDimen.set(10)

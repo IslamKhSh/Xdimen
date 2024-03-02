@@ -5,6 +5,7 @@ plugins {
 }
 
 android {
+    namespace "io.github.islamkhsh.xdimen.sample.groovy"
     compileSdk 31
     defaultConfig {
         applicationId "io.github.islamkhsh.xdimen.sample.groovy"
