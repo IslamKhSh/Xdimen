@@ -2,6 +2,7 @@ package utils
 
 import utils.Constants.DP
 import utils.Constants.VALUES_ALTER_RES_DIR_PREFIX
+import java.util.*
 
 /**
  * As in xml attributes values names restricted to only **chars**, **numbers** and **`_`** symbol
@@ -20,7 +21,7 @@ import utils.Constants.VALUES_ALTER_RES_DIR_PREFIX
  *   - **-10.50** ==> **neg_10.50** ==> **neg_x10.50** ==> **neg_x10_5** ==> **neg_x10_5dp**
  */
 internal fun Double.toDimenName(unit: String): String {
-    var numAsString = "$this"
+    var numAsString = String.format(Locale.ENGLISH, "%.1f", this)
     val dimenNameBuilder = StringBuilder()
 
     // if number is negative append prefix neg_ and remove - sign
