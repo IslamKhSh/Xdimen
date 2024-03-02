@@ -1,11 +1,12 @@
 # Xdimen
 
-[![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/io.github.islamkhsh.xdimen?color=gradle&logo=gradle)](https://plugins.gradle.org/plugin/io.github.islamkhsh.xdimen)
+[![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/io.github.islamkhsh.xdimen?color=blue&logo=gradle)](https://plugins.gradle.org/plugin/io.github.islamkhsh.xdimen) [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Xdimen%20Gradle%20Plugin-gradle.svg?style=flat )]( https://android-arsenal.com/details/1/8408 )
+
 
 <p align="center"><img src="images/xdimen%20logo.svg" width="600"></p>
 Support multiple screen sizes easily by scaling your dimensions.
 
-## How does Xdiemn work?
+## How does Xdimen work?
 
 When you have a UI design with a specific dimension, and you need to support different mobiles or tablets in portrait or
 landscape. This case **Xdimen** can help you to generate scalable dimesions for common devices' screen sizes.
@@ -15,9 +16,12 @@ dimensions.
 
 > Xml resources are generated with help of [kotlin xml builder](https://github.com/redundent/kotlin-xml-builder)
 
+Find more about Xdimen [here](https://medium.com/@islam.khaled50/android-support-multiple-screen-sizes-by-scaling-dimensions-5fd9bd80821)
+
+
 ## Usage
 
-![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/io.github.islamkhsh.xdimen?color=gradle&logo=gradle&label=Latest%20version)
+![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/io.github.islamkhsh.xdimen?color=blue&logo=gradle&label=Latest%20version)
 
 ### Add to project
 
@@ -95,7 +99,7 @@ All properties are optional, only `designWidth` is required. Properties are disc
 </details> 
 
 ### Use scaled dimens
-After generate xdiemn resources (see next section) you can use the dimens 
+After generate xdimen resources (see next section) you can use the dimens 
 ```xml
    <TextView android:layout_width="@dimen/x100dp"    # width in design is 100dp
              android:layout_height="@dimen/x50_5dp"  # height in design is 50.5dp
@@ -128,7 +132,7 @@ before `generateXdimen` if you set `deleteOldXdimen` property by true.
 <summary><b>deleteOldXdimen</b></summary>  
 
 By setting it when you execute `generateXdimen` task `deleteXdimen` will be executed first to delete all previous
-generated xdimen resources and their dirs if the directory contains only `xdiemn.xml` file.
+generated xdimen resources and their dirs if the directory contains only `xdimen.xml` file.
 
 > If you renamed the `xdimen.xml` file or its directory for any reason, this file won't be deleted. 
   
@@ -163,22 +167,15 @@ The design screen density (dot per inch) [see more](https://developer.android.co
 The width of screens of devices which you target. For every width in this list, an alternative resource will be generated
 with scaled dimensions.
 
-ex: if rhe list is [350, 400] then
+ex: if the list is [350, 400] then
 
   ```
   ...
- -> values
-    - xdimen.xml
- -> values-w350dp
-    - xdimen.xml
- -> values-w400dp
-    - xdimen.xml
+-> values/xdimen.xml            # Devices with screen-width less than 350dp.
+-> values-w350dp/xdimen.xml     # 350dp <= screen-width < 400dp
+-> values-w400dp/xdimen.xml     # screen-width >= 400dp
   ...
 ```
-  And this means that all devices with 
-  - screen width < 350 will use dimens in `values/xdimen.xml`.
-  - 350dp <= screen width < 400 will use dimens in `values-w350dp/xdimen.xml`.
-  - screen width >= 400 will use dimens in `values-w400dp/xdimen.xml`.
   
 > You can use  a predefined set as it's, adds or removes from it, or provide your own set.
 
@@ -186,9 +183,9 @@ ex: if rhe list is [350, 400] then
 
 > > Predefined sets for common devices:
 >  - `phonePortrait`: common phones in portrait orientation.
->  - `phoneLandscape`: common phones in portrait orientation.
+>  - `phoneLandscape`: common phones in landscape orientation.
 >  - `tabletPortrait`: common tablets in portrait orientation.
->  - `tabletLandscape`: common tablets in portrait orientation.
+>  - `tabletLandscape`: common tablets in landscape orientation.
 >  ####
 >  - `devicesInPortrait`: common phones and tablets in portrait.
 >  - `devicesInLandscape`: common phones and tablets in landscape.
